@@ -26,6 +26,7 @@
 		52FD522A1D9A05CE0010FB61 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		52FD522B1D9A06060010FB61 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		52FD52301D9A06660010FB61 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
+		52FD52351D9A09270010FB61 /* XO.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = XO.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +67,7 @@
 				52FD52271D9A04880010FB61 /* Sources */,
 				52FD52251D9A04780010FB61 /* Support */,
 				52FD51F61D9A04100010FB61 /* Products */,
+				52FD52351D9A09270010FB61 /* XO.playground */,
 				52FD522A1D9A05CE0010FB61 /* LICENSE.md */,
 			);
 			sourceTree = "<group>";
