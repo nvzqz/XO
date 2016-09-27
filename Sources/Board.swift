@@ -80,4 +80,20 @@ public struct Board: Equatable, Hashable {
         }
     }
 
+    /// Returns `self` with the marks inverted.
+    public func inverse() -> Board {
+        var copy = self
+        copy.invert()
+        return copy
+    }
+
+    /// Inverts the marks of `self`.
+    public mutating func invert() {
+        for x in 0 ..< 3 {
+            for y in 0 ..< 3 {
+                self[x, y]?.invert()
+            }
+        }
+    }
+
 }
