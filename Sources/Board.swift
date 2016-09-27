@@ -26,7 +26,38 @@
 //
 
 /// A tic-tac-toe board.
-public struct Board: Equatable, Hashable {
+public struct Board: Equatable, Sequence, Hashable {
+
+    /// A space on a board.
+    public typealias Space = (location: (x: Int, y: Int), mark: Mark?)
+
+    /// An iterator for a tic-tac-toe board.
+    public struct Iterator: IteratorProtocol {
+
+        private let _board: Board
+
+        private var _index: Int
+
+        fileprivate init(_ board: Board) {
+            self._board = board
+            self._index = 0
+        }
+
+        /// Advances to the next element and returns it, or `nil` if no next element
+        /// exists.  Once `nil` has been returned, all subsequent calls return `nil`.
+        public mutating func next() -> Space? {
+            guard _index != 9 else {
+                return nil
+            }
+            defer {
+                _index += 1
+            }
+            let x = _index % 3
+            let y = _index / 3
+            return ((x, y), _board[x, y])
+        }
+
+    }
 
     /// Returns `true` if both boards are the same.
     public static func == (lhs: Board, rhs: Board) -> Bool {
@@ -122,6 +153,11 @@ public struct Board: Equatable, Hashable {
                 self[x, y]?.invert()
             }
         }
+    }
+
+    /// Returns an iterator over the elements of this sequence.
+    public func makeIterator() -> Iterator {
+        return Iterator(self)
     }
 
 }
