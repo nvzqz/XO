@@ -31,6 +31,15 @@ public struct Board {
     /// The marks on `self`.
     private var _marks: [[Mark?]]
 
+    /// An ASCII art representation of `self`.
+    public var ascii: String {
+        let segment = "+---+---+---+"
+        return _marks.reduce("", { result, row in
+            let rowStr = row.reduce("", { $0 + "| \($1?.rawValue ?? " ") " })
+            return result + "\(segment)\n" + rowStr + "|\n"
+        }) + segment
+    }
+
     /// Creates an empty tic-tac-toe board.
     public init() {
         _marks = Array(repeating: Array(repeating: nil, count: 3), count: 3)
