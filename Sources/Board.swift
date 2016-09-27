@@ -80,6 +80,34 @@ public struct Board: Equatable, Hashable {
         }
     }
 
+    /// Returns `self` flipped horizontally.
+    public func flippedHorizontally() -> Board {
+        var copy = self
+        copy.flipHorizontally()
+        return copy
+    }
+
+    /// Flips `self` horizontally.
+    public mutating func flipHorizontally() {
+        for y in 0 ..< 3 {
+            swap(&self[0, y], &self[2, y])
+        }
+    }
+
+    /// Returns `self` flipped vertically.
+    public func flippedVertically() -> Board {
+        var copy = self
+        copy.flipVertically()
+        return copy
+    }
+
+    /// Flips `self` vertically.
+    public mutating func flipVertically() {
+        for x in 0 ..< 3 {
+            swap(&self[x, 0], &self[x, 2])
+        }
+    }
+
     /// Returns `self` with the marks inverted.
     public func inverse() -> Board {
         var copy = self
