@@ -26,7 +26,22 @@
 //
 
 /// A tic-tac-toe board.
-public struct Board {
+public struct Board: Equatable {
+
+    /// Returns `true` if both boards are the same.
+    public static func == (lhs: Board, rhs: Board) -> Bool {
+        if lhs._marks._isSameAs(rhs._marks) {
+            return true
+        }
+        for (rowA, rowB) in zip(lhs._marks, rhs._marks) where !rowA._isSameAs(rowB) {
+            for (colA, colB) in zip(rowA, rowB) {
+                guard colA == colB else {
+                    return false
+                }
+            }
+        }
+        return true
+    }
 
     /// The marks on `self`.
     private var _marks: [[Mark?]]
