@@ -26,7 +26,7 @@
 //
 
 /// A square on a tic-tac-toe board.
-public enum Square: Int {
+public enum Square: Int, CustomStringConvertible {
 
     /// Square at (0, 0).
     case aa
@@ -87,6 +87,12 @@ public enum Square: Int {
     /// Whether `self` is an edge square.
     public var isEdge: Bool {
         return (x == 1) != (y == 1)
+    }
+
+    /// A textual representation of this instance.
+    public var description: String {
+        let chars: [Character] = ["a", "b", "c"]
+        return String(chars[x]) + String(chars[y])
     }
 
     /// Creates a square from `x` and `y` indices.
