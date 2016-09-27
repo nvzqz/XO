@@ -26,7 +26,7 @@
 //
 
 /// A tic-tac-toe board.
-public struct Board: Equatable {
+public struct Board: Equatable, Hashable {
 
     /// Returns `true` if both boards are the same.
     public static func == (lhs: Board, rhs: Board) -> Bool {
@@ -53,6 +53,16 @@ public struct Board: Equatable {
             let rowStr = row.reduce("", { $0 + "| \($1?.rawValue ?? " ") " })
             return result + "\(segment)\n" + rowStr + "|\n"
         }) + segment
+    }
+
+    /// The hash value.
+    public var hashValue: Int {
+        return (0 ..< 9).reduce(0) { result, i in
+            let x = i % 3
+            let y = i / 3
+            let h = self[x, y]?.hashValue ?? 2
+            return result | (h << (i << 1))
+        }
     }
 
     /// Creates an empty tic-tac-toe board.
