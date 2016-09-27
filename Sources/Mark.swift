@@ -39,12 +39,17 @@ public enum Mark: Character, CustomStringConvertible {
         return String(rawValue)
     }
 
-    /// Returns the opposite mark.
-    public func opposite() -> Mark {
+    /// Returns the inverse mark of `self`.
+    public func inverse() -> Mark {
         switch self {
         case .x: return .o
         case .o: return .x
         }
+    }
+
+    /// Inverts the mark of `self`.
+    public mutating func invert() {
+        self = inverse()
     }
 
 }
