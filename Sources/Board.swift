@@ -64,25 +64,28 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         if lhs._marks._isSameAs(rhs._marks) {
             return true
         }
-        for (rowA, rowB) in zip(lhs._marks, rhs._marks) where !rowA._isSameAs(rowB) {
-            for (colA, colB) in zip(rowA, rowB) {
-                guard colA == colB else {
-                    return false
-                }
-            }
+        for (a, b) in zip(lhs._marks, rhs._marks) where a != b {
+            return false
         }
         return true
     }
 
     /// The marks on `self`.
-    private var _marks: [[Mark?]]
+    private var _marks: [Mark?]
 
     /// An ASCII art representation of `self`.
     public var ascii: String {
         let segment = "+---+---+---+"
-        return _marks.reduce("", { result, row in
-            let rowStr = row.reduce("", { $0 + "| \($1?.rawValue ?? " ") " })
-            return result + "\(segment)\n" + rowStr + "|\n"
+        return Square.all.reduce("", { result, square in
+            let str = "| \(self[square]?.rawValue ?? " ") "
+            switch square.x {
+            case 0:
+                return result + "\(segment)\n" + str
+            case 1:
+                return result + str
+            default:
+                return result + str + "|\n"
+            }
         }) + segment
     }
 
@@ -98,7 +101,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Creates an empty tic-tac-toe board.
     public init() {
-        _marks = Array(repeating: Array(repeating: nil, count: 3), count: 3)
+        _marks = Array(repeating: nil, count: 9)
     }
 
     /// Creates a tic-tac-toe board from `characters`.
@@ -122,13 +125,26 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         self.init(elements)
     }
 
+    /// The mark at the square.
+    public subscript(square: Square) -> Mark? {
+        get {
+            return _marks[square.hashValue]
+        }
+        set {
+            _marks[square.hashValue] = newValue
+        }
+    }
+
     /// The mark at the x and y indices.
     public subscript(xIndex: Int, yIndex: Int) -> Mark? {
         get {
-            return _marks[yIndex][xIndex]
+            return Square(x: xIndex, y: yIndex).flatMap { self[$0] }
         }
         set {
-            _marks[yIndex][xIndex] = newValue
+            guard let square = Square(x: xIndex, y: yIndex) else {
+                return
+            }
+            self[square] = newValue
         }
     }
 
@@ -169,10 +185,8 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Inverts the marks of `self`.
     public mutating func invert() {
-        for x in 0 ..< 3 {
-            for y in 0 ..< 3 {
-                self[x, y]?.invert()
-            }
+        for square in Square.all {
+            self[square]?.invert()
         }
     }
 
