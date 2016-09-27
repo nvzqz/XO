@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52B58FE01D9A119300103C78 /* Array+XO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B58FDF1D9A119300103C78 /* Array+XO.swift */; };
+		52B58FE11D9A119300103C78 /* Array+XO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B58FDF1D9A119300103C78 /* Array+XO.swift */; };
+		52B58FE21D9A119300103C78 /* Array+XO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B58FDF1D9A119300103C78 /* Array+XO.swift */; };
+		52B58FE31D9A119300103C78 /* Array+XO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B58FDF1D9A119300103C78 /* Array+XO.swift */; };
 		52FD522C1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
 		52FD522D1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
 		52FD522E1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
@@ -18,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52B58FDF1D9A119300103C78 /* Array+XO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+XO.swift"; sourceTree = "<group>"; };
 		52FD51F51D9A04100010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FD52031D9A04200010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FD52101D9A04400010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +101,7 @@
 			children = (
 				52FD522B1D9A06060010FB61 /* Board.swift */,
 				52FD52301D9A06660010FB61 /* Mark.swift */,
+				52B58FDF1D9A119300103C78 /* Array+XO.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FD52311D9A06660010FB61 /* Mark.swift in Sources */,
+				52B58FE01D9A119300103C78 /* Array+XO.swift in Sources */,
 				52FD522C1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FD52321D9A06660010FB61 /* Mark.swift in Sources */,
+				52B58FE11D9A119300103C78 /* Array+XO.swift in Sources */,
 				52FD522D1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FD52331D9A06660010FB61 /* Mark.swift in Sources */,
+				52B58FE21D9A119300103C78 /* Array+XO.swift in Sources */,
 				52FD522E1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52FD52341D9A06660010FB61 /* Mark.swift in Sources */,
+				52B58FE31D9A119300103C78 /* Array+XO.swift in Sources */,
 				52FD522F1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +868,7 @@
 				52FD51FC1D9A04100010FB61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52FD52081D9A04200010FB61 /* Build configuration list for PBXNativeTarget "XO iOS" */ = {
 			isa = XCConfigurationList;
@@ -866,6 +877,7 @@
 				52FD520A1D9A04200010FB61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52FD52151D9A04410010FB61 /* Build configuration list for PBXNativeTarget "XO watchOS" */ = {
 			isa = XCConfigurationList;
@@ -874,6 +886,7 @@
 				52FD52171D9A04410010FB61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52FD52221D9A04480010FB61 /* Build configuration list for PBXNativeTarget "XO tvOS" */ = {
 			isa = XCConfigurationList;
@@ -882,6 +895,7 @@
 				52FD52241D9A04480010FB61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
