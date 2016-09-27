@@ -26,12 +26,17 @@
 //
 
 /// A tic-tac-toe mark.
-public enum Mark: Character {
+public enum Mark: Character, CustomStringConvertible {
 
     /// X mark.
     case x = "x"
 
     /// O mark.
     case o = "o"
+
+    /// A textual representation of this instance.
+    public var description: String {
+        return String(rawValue)
+    }
 
 }
