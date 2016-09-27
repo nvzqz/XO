@@ -6,6 +6,17 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		52FD522C1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
+		52FD522D1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
+		52FD522E1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
+		52FD522F1D9A06060010FB61 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD522B1D9A06060010FB61 /* Board.swift */; };
+		52FD52311D9A06660010FB61 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD52301D9A06660010FB61 /* Mark.swift */; };
+		52FD52321D9A06660010FB61 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD52301D9A06660010FB61 /* Mark.swift */; };
+		52FD52331D9A06660010FB61 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD52301D9A06660010FB61 /* Mark.swift */; };
+		52FD52341D9A06660010FB61 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FD52301D9A06660010FB61 /* Mark.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		52FD51F51D9A04100010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FD52031D9A04200010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -13,6 +24,8 @@
 		52FD521D1D9A04480010FB61 /* XO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FD52281D9A04950010FB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = XO.xcodeproj/Info.plist; sourceTree = "<group>"; };
 		52FD522A1D9A05CE0010FB61 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		52FD522B1D9A06060010FB61 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		52FD52301D9A06660010FB61 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +92,8 @@
 		52FD52271D9A04880010FB61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				52FD522B1D9A06060010FB61 /* Board.swift */,
+				52FD52301D9A06660010FB61 /* Mark.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -196,21 +211,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Nikolai Vazquez";
 				TargetAttributes = {
 					52FD51F41D9A04100010FB61 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					52FD52021D9A04200010FB61 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					52FD520F1D9A04400010FB61 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					52FD521C1D9A04480010FB61 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -271,6 +291,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD52311D9A06660010FB61 /* Mark.swift in Sources */,
+				52FD522C1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD52321D9A06660010FB61 /* Mark.swift in Sources */,
+				52FD522D1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +309,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD52331D9A06660010FB61 /* Mark.swift in Sources */,
+				52FD522E1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +318,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FD52341D9A06660010FB61 /* Mark.swift in Sources */,
+				52FD522F1D9A06060010FB61 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
