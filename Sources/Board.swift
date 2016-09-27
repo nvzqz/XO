@@ -26,7 +26,7 @@
 //
 
 /// A tic-tac-toe board.
-public struct Board: Equatable, Sequence, Hashable {
+public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// A space on a board.
     public typealias Space = (location: (x: Int, y: Int), mark: Mark?)
@@ -99,6 +99,27 @@ public struct Board: Equatable, Sequence, Hashable {
     /// Creates an empty tic-tac-toe board.
     public init() {
         _marks = Array(repeating: Array(repeating: nil, count: 3), count: 3)
+    }
+
+    /// Creates a tic-tac-toe board from `characters`.
+    public init(_ characters: [[Character]]) {
+        self.init()
+        for y in 0 ..< characters.endIndex {
+            guard y != 3 else {
+                break
+            }
+            for x in 0 ..< characters[y].endIndex {
+                guard x != 3 else {
+                    break
+                }
+                self[x, y] = Mark(characters[y][x])
+            }
+        }
+    }
+
+    /// Creates an instance initialized with the given elements.
+    public init(arrayLiteral elements: [Character]...) {
+        self.init(elements)
     }
 
     /// The mark at the x and y indices.
