@@ -46,15 +46,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         /// Advances to the next element and returns it, or `nil` if no next element
         /// exists.  Once `nil` has been returned, all subsequent calls return `nil`.
         public mutating func next() -> Space? {
-            guard _index != 9 else {
+            guard let square = Square(rawValue: _index) else {
                 return nil
             }
-            defer {
-                _index += 1
-            }
-            let x = _index % 3
-            let y = _index / 3
-            return ((x, y), _board[x, y])
+            _index += 1
+            return ((square.x, square.y), _board[square])
         }
 
     }
