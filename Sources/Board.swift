@@ -88,10 +88,8 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     /// The hash value.
     public var hashValue: Int {
         return (0 ..< 9).reduce(0) { result, i in
-            let x = i % 3
-            let y = i / 3
-            let h = self[x, y]?.hashValue ?? 2
-            return result | (h << (i << 1))
+            let hash = _marks[i]?.hashValue ?? 2
+            return result | (hash << (i << 1))
         }
     }
 
