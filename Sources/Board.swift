@@ -72,17 +72,19 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     /// An ASCII art representation of `self`.
     public var ascii: String {
         let segment = "+---+---+---+"
-        return Square.all.reduce("", { result, square in
-            let str = "| \(self[square]?.rawValue ?? " ") "
-            switch square.x {
-            case 0:
-                return result + "\(segment)\n" + str
-            case 1:
-                return result + str
-            default:
-                return result + str + "|\n"
+        var result = segment
+        for y in (0 ..< 3) {
+            result += "\n|"
+            for x in (0 ..< 3) {
+                if let mark = _marks[x + y * 3] {
+                    result += " " + mark.description + " |"
+                } else {
+                    result += "   |"
+                }
             }
-        }) + segment
+            result += "\n" + segment
+        }
+        return result
     }
 
     /// The hash value.
