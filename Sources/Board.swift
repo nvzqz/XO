@@ -74,7 +74,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         if lhs._marks._isSameAs(rhs._marks) {
             return true
         }
-        for (a, b) in zip(lhs._marks, rhs._marks) where a != b {
+        for i in 0 ..< 9 where lhs._marks[i] != rhs._marks[i] {
             return false
         }
         return true
