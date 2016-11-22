@@ -29,7 +29,21 @@
 public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// A space on a board.
-    public typealias Space = (location: (x: Int, y: Int), mark: Mark?)
+    public struct Space {
+
+        /// The square of the space.
+        public var square: Square
+
+        /// The mark at `self.square`.
+        public var mark: Mark?
+
+        /// Creates a space with `square` and `mark`.
+        public init(square: Square, mark: Mark? = nil) {
+            self.square = square
+            self.mark = mark
+        }
+
+    }
 
     /// An iterator for a tic-tac-toe board.
     public struct Iterator: IteratorProtocol {
@@ -50,7 +64,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
                 return nil
             }
             _index += 1
-            return ((square.x, square.y), _board[square])
+            return Space(square: square, mark: _board[square])
         }
 
     }
