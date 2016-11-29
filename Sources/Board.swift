@@ -88,6 +88,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     /// The marks on `self`.
     private var _marks: [Mark?]
 
+    /// The empty squares of `self`.
+    public var emptySquares: [Square] {
+        return Square.all.filter { self[$0] == nil }
+    }
+
     /// An ASCII art representation of `self`.
     public var ascii: String {
         let segment = "+---+---+---+"
