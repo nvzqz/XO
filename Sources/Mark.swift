@@ -39,6 +39,24 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         return String(rawValue)
     }
 
+    /// A scalar for the emoji representation of `self`.
+    public var emojiScalar: UnicodeScalar {
+        switch self {
+        case .x: return "\u{274C}"
+        case .o: return "\u{2B55}"
+        }
+    }
+
+    /// A character for the emoji representation of `self`.
+    public var emojiCharacter: Character {
+        return Character(emojiScalar)
+    }
+
+    /// A string for the emoji representation of `self`.
+    public var emojiString: String {
+        return String(emojiScalar)
+    }
+
     /// Creates a mark from a scalar.
     public init?(_ scalar: UnicodeScalar) {
         switch scalar {
