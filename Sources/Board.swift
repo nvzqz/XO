@@ -29,7 +29,12 @@
 public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// A space on a board.
-    public struct Space {
+    public struct Space: Equatable {
+
+        /// Returns `true` if both boards are the same.
+        public static func == (lhs: Space, rhs: Space) -> Bool {
+            return lhs.square == rhs.square && lhs.mark == rhs.mark
+        }
 
         /// The square of the space.
         public var square: Square
