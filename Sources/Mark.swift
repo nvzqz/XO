@@ -57,6 +57,15 @@ public enum Mark: Character, CustomStringConvertible {
         }
     }
 
+    /// Creates a mark from a string.
+    public init?(_ string: String) {
+        switch string {
+        case "X", "x": self = .x
+        case "O", "o": self = .o
+        default: return nil
+        }
+    }
+
     /// Returns the inverse mark of `self`.
     public func inverse() -> Mark {
         switch self {
