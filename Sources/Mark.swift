@@ -26,7 +26,7 @@
 //
 
 /// A tic-tac-toe mark.
-public enum Mark: Character, CustomStringConvertible {
+public enum Mark: UnicodeScalar, CustomStringConvertible {
 
     /// X mark.
     case x = "x"
