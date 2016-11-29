@@ -39,6 +39,15 @@ public enum Mark: Character, CustomStringConvertible {
         return String(rawValue)
     }
 
+    /// Creates a mark from a scalar.
+    public init?(_ scalar: UnicodeScalar) {
+        switch scalar {
+        case "X", "x": self = .x
+        case "O", "o": self = .o
+        default: return nil
+        }
+    }
+
     /// Creates a mark from a character.
     public init?(_ character: Character) {
         switch character {
