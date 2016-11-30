@@ -75,6 +75,31 @@ public final class Game {
         }
         board[square] = currentMark
         _undoHistory.append(square)
+        _redoHistory.removeAll()
+    }
+
+    /// Undoes the previous mark and returns its square.
+    @discardableResult
+    public func undo() -> Square? {
+        if let square = _undoHistory.popLast() {
+            _redoHistory.append(square)
+            board[square] = currentMark
+            return square
+        } else {
+            return nil
+        }
+    }
+
+    /// Redoes the previous undone mark and returns its square.
+    @discardableResult
+    public func redo() -> Square? {
+        if let square = _redoHistory.popLast() {
+            _undoHistory.append(square)
+            board[square] = currentMark
+            return square
+        } else {
+            return nil
+        }
     }
 
 }
