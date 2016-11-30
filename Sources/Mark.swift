@@ -48,6 +48,15 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         }
     }
 
+    /// Creates a mark from a unicode scalar literal convertible emoji.
+    public init?<S: ExpressibleByUnicodeScalarLiteral & Equatable>(emoji: S) {
+        switch emoji {
+        case "\u{274C}": self = .x
+        case "\u{2B55}": self = .o
+        default: return nil
+        }
+    }
+
     /// Returns an emoji for `self`.
     public func emoji<S: ExpressibleByUnicodeScalarLiteral>() -> S {
         switch self {
