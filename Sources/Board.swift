@@ -159,18 +159,18 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         _marks = Array(repeating: nil, count: 9)
     }
 
-    /// Creates a tic-tac-toe board from `characters`.
-    public init(_ characters: [[Character]]) {
+    /// Creates a tic-tac-toe board from `marks`.
+    public init<S: ExpressibleByUnicodeScalarLiteral & Equatable>(_ marks: [[S]]) {
         self.init()
-        for y in 0 ..< characters.endIndex {
+        for y in 0 ..< marks.endIndex {
             guard y != 3 else {
                 break
             }
-            for x in 0 ..< characters[y].endIndex {
+            for x in 0 ..< marks[y].endIndex {
                 guard x != 3 else {
                     break
                 }
-                self[x, y] = Mark(characters[y][x])
+                self[x, y] = Mark(marks[y][x])
             }
         }
     }
