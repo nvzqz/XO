@@ -39,30 +39,20 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         return String(rawValue)
     }
 
-    /// A scalar for the emoji representation of `self`.
-    public var emojiScalar: UnicodeScalar {
-        switch self {
-        case .x: return "\u{274C}"
-        case .o: return "\u{2B55}"
-        }
-    }
-
-    /// A character for the emoji representation of `self`.
-    public var emojiCharacter: Character {
-        return Character(emojiScalar)
-    }
-
-    /// A string for the emoji representation of `self`.
-    public var emojiString: String {
-        return String(emojiScalar)
-    }
-
     /// Creates a mark from a unicode scalar literal convertible mark.
     public init?<S: ExpressibleByUnicodeScalarLiteral & Equatable>(_ mark: S) {
         switch mark {
         case "X", "x": self = .x
         case "O", "o": self = .o
         default: return nil
+        }
+    }
+
+    /// Returns an emoji for `self`.
+    public func emoji<S: ExpressibleByUnicodeScalarLiteral>() -> S {
+        switch self {
+        case .x: return "\u{274C}"
+        case .o: return "\u{2B55}"
         }
     }
 

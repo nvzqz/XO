@@ -117,7 +117,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         for y in (0 ..< 3) {
             for x in (0 ..< 3) {
                 if let mark = _marks[x + y * 3] {
-                    result.append(mark.emojiScalar)
+                    result.append(mark.emoji())
                 } else {
                     result.append("\u{2B1C}") // white square
                 }
