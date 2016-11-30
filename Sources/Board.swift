@@ -111,6 +111,25 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return result
     }
 
+    /// The winning mark in `self`, if any.
+    public var winner: Mark? {
+        if let mark = _marks[0], _marks[4] == mark, _marks[8] == mark {
+            return mark
+        }
+        if let mark = _marks[2], _marks[4] == mark, _marks[6] == mark {
+            return mark
+        }
+        for i in 0 ..< 3 {
+            if let mark = _marks[i], _marks[i + 3] == mark, _marks[i + 6] == mark {
+                return mark
+            }
+            if let mark = _marks[i * 3], _marks[i + 1] == mark, _marks[i + 2] == mark {
+                return mark
+            }
+        }
+        return nil
+    }
+
     /// The hash value.
     public var hashValue: Int {
         return (0 ..< 9).reduce(0) { result, i in
