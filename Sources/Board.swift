@@ -162,14 +162,8 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     /// Creates a tic-tac-toe board from `marks`.
     public init<S: ExpressibleByUnicodeScalarLiteral & Equatable>(_ marks: [[S]]) {
         self.init()
-        for y in 0 ..< marks.endIndex {
-            guard y != 3 else {
-                break
-            }
-            for x in 0 ..< marks[y].endIndex {
-                guard x != 3 else {
-                    break
-                }
+        for y in marks.indices.prefix(3) {
+            for x in marks[y].indices.prefix(3) {
                 self[x, y] = Mark(marks[y][x])
             }
         }
