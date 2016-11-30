@@ -60,6 +60,22 @@ public final class Game {
         _redoHistory = []
     }
 
+    /// Creates a new game from `history`.
+    public convenience init(history: [Square]) throws {
+        self.init()
+        for square in history {
+            try applyMark(to: square)
+        }
+    }
+
+    /// Creates a new game from `uncheckedHistory`.
+    public convenience init(uncheckedHistory: [Square]) {
+        self.init()
+        for square in uncheckedHistory {
+            applyUncheckedMark(to: square)
+        }
+    }
+
     /// The squares available to mark.
     public func availableSquares() -> [Square] {
         return board.winner == nil ? board.emptySquares : []
