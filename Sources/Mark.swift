@@ -57,27 +57,9 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         return String(emojiScalar)
     }
 
-    /// Creates a mark from a scalar.
-    public init?(_ scalar: UnicodeScalar) {
-        switch scalar {
-        case "X", "x": self = .x
-        case "O", "o": self = .o
-        default: return nil
-        }
-    }
-
-    /// Creates a mark from a character.
-    public init?(_ character: Character) {
-        switch character {
-        case "X", "x": self = .x
-        case "O", "o": self = .o
-        default: return nil
-        }
-    }
-
-    /// Creates a mark from a string.
-    public init?(_ string: String) {
-        switch string {
+    /// Creates a mark from a unicode scalar literal convertible mark.
+    public init?<S: ExpressibleByUnicodeScalarLiteral & Equatable>(_ mark: S) {
+        switch mark {
         case "X", "x": self = .x
         case "O", "o": self = .o
         default: return nil
