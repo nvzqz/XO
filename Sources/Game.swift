@@ -83,6 +83,16 @@ public final class Game {
         applyUncheckedMark(to: square)
     }
 
+    /// Returns the square for the last mark.
+    public func squareForUndo() -> Square? {
+        return _undoHistory.last
+    }
+
+    /// Returns the square for the last undone mark.
+    public func squareForRedo() -> Square? {
+        return _redoHistory.last
+    }
+
     /// Undoes the previous mark and returns its square.
     @discardableResult
     public func undo() -> Square? {
