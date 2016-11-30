@@ -132,6 +132,13 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         }
     }
 
+    /// Creates a tic-tac-toe board from `_marks`.
+    ///
+    /// - warning: The array should have at least 9 elements.
+    private init(_marks: [Mark?]) {
+        self._marks = _marks
+    }
+
     /// Creates an empty tic-tac-toe board.
     public init() {
         _marks = Array(repeating: nil, count: 9)
