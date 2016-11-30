@@ -87,8 +87,8 @@ public final class Game {
     @discardableResult
     public func undo() -> Square? {
         if let square = _undoHistory.popLast() {
+            board[square] = nil
             _redoHistory.append(square)
-            board[square] = currentMark
             return square
         } else {
             return nil
@@ -99,8 +99,8 @@ public final class Game {
     @discardableResult
     public func redo() -> Square? {
         if let square = _redoHistory.popLast() {
-            _undoHistory.append(square)
             board[square] = currentMark
+            _undoHistory.append(square)
             return square
         } else {
             return nil
