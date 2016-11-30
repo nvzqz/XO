@@ -28,28 +28,6 @@
 /// A tic-tac-toe board.
 public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
-    /// A space on a board.
-    public struct Space: Equatable {
-
-        /// Returns `true` if both boards are the same.
-        public static func == (lhs: Space, rhs: Space) -> Bool {
-            return lhs.square == rhs.square && lhs.mark == rhs.mark
-        }
-
-        /// The square of the space.
-        public var square: Square
-
-        /// The mark at `self.square`.
-        public var mark: Mark?
-
-        /// Creates a space with `square` and `mark`.
-        public init(square: Square, mark: Mark? = nil) {
-            self.square = square
-            self.mark = mark
-        }
-
-    }
-
     /// An iterator for a tic-tac-toe board.
     public struct Iterator: IteratorProtocol {
 
@@ -64,12 +42,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
         /// Advances to the next element and returns it, or `nil` if no next element
         /// exists.  Once `nil` has been returned, all subsequent calls return `nil`.
-        public mutating func next() -> Space? {
+        public mutating func next() -> (square: Square, mark: Mark?)? {
             guard let square = Square(rawValue: _index) else {
                 return nil
             }
             _index += 1
-            return Space(square: square, mark: _board[square])
+            return (square, _board[square])
         }
 
     }
