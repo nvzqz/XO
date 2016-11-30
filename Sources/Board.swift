@@ -176,7 +176,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     }
 
     /// Creates an instance initialized with the given elements.
-    public init(arrayLiteral elements: [Character]...) {
+    public init(arrayLiteral elements: [UnicodeScalar]...) {
         self.init(elements)
     }
 
