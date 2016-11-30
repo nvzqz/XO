@@ -111,6 +111,22 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return result
     }
 
+    /// An emoji representation of `self`.
+    public var emoji: String {
+        var result = String.UnicodeScalarView()
+        for y in (0 ..< 3) {
+            for x in (0 ..< 3) {
+                if let mark = _marks[x + y * 3] {
+                    result.append(mark.emojiScalar)
+                } else {
+                    result.append("\u{2B1C}") // white square
+                }
+            }
+            result.append("\n")
+        }
+        return String(result)
+    }
+
     /// The winning mark in `self`, if any.
     public var winner: Mark? {
         if let mark = _marks[0], _marks[4] == mark, _marks[8] == mark {
