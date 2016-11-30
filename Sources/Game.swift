@@ -28,6 +28,17 @@
 /// A tic-tac-toe game.
 public final class Game {
 
+    /// An error thrown by `applyMark(to:)`.
+    public enum ApplyMarkError: Error {
+
+        /// Attempted to apply to non empty square.
+        case nonEmpty(Square)
+
+        /// Attempted to apply when winner exists.
+        case hasWinner(Mark)
+
+    }
+
     /// History to undo.
     private var _undoHistory: [Square]
 
@@ -47,6 +58,18 @@ public final class Game {
     /// The squares available to mark.
     public func availableSquares() -> [Square] {
         return board.emptySquares
+    }
+
+    /// Applies the appropiate mark to `
+    public func applyMark(to square: Square) throws {
+        if board[square] != nil {
+            throw ApplyMarkError.nonEmpty(square)
+        }
+        if let winner = board.winner {
+            throw ApplyMarkError.hasWinner(winner)
+        }
+        board[square] = (_undoHistory.count % 2 == 0) ? .x : .o
+        _undoHistory.append(square)
     }
 
 }
