@@ -65,7 +65,14 @@ public final class Game {
         return board.winner == nil ? board.emptySquares : []
     }
 
-    /// Applies the appropiate mark to `
+    /// Applies the appropiate mark to `square` without checking for error.
+    public func applyUncheckedMark(to square: Square) {
+        board[square] = currentMark
+        _undoHistory.append(square)
+        _redoHistory.removeAll()
+    }
+
+    /// Applies the appropiate mark to `square`.
     public func applyMark(to square: Square) throws {
         if board[square] != nil {
             throw ApplyMarkError.nonEmpty(square)
@@ -73,9 +80,7 @@ public final class Game {
         if let winner = board.winner {
             throw ApplyMarkError.hasWinner(winner)
         }
-        board[square] = currentMark
-        _undoHistory.append(square)
-        _redoHistory.removeAll()
+        applyUncheckedMark(to: square)
     }
 
     /// Undoes the previous mark and returns its square.
