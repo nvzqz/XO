@@ -48,6 +48,11 @@ public final class Game {
     /// The game board.
     public private(set) var board: Board
 
+    /// The current mark to play.
+    public var currentMark: Mark {
+        return (_undoHistory.count % 2 == 0) ? .x : .o
+    }
+
     /// Creates a new game.
     public init() {
         board = Board()
@@ -68,7 +73,7 @@ public final class Game {
         if let winner = board.winner {
             throw ApplyMarkError.hasWinner(winner)
         }
-        board[square] = (_undoHistory.count % 2 == 0) ? .x : .o
+        board[square] = currentMark
         _undoHistory.append(square)
     }
 
