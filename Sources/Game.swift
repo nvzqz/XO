@@ -62,7 +62,7 @@ public final class Game {
 
     /// The squares available to mark.
     public func availableSquares() -> [Square] {
-        return board.emptySquares
+        return board.winner == nil ? board.emptySquares : []
     }
 
     /// Applies the appropiate mark to `
