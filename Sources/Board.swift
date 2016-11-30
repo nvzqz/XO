@@ -175,6 +175,17 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         }
     }
 
+    /// Creates a tic-tac-toe board from `emoji`.
+    public init(emoji: String) {
+        self.init()
+        let split = emoji.unicodeScalars.split(separator: "\n")
+        for (y, part) in split.prefix(3).enumerated() {
+            for (x, scalar) in part.prefix(3).enumerated() {
+                self[x, y] = Mark(emoji: scalar)
+            }
+        }
+    }
+
     /// Creates an instance initialized with the given elements.
     public init(arrayLiteral elements: [UnicodeScalar]...) {
         self.init(elements)
