@@ -312,4 +312,13 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return Iterator(self)
     }
 
+    /// Returns the next boards of `self` marked with `mark`.
+    public func nextBoards(markedWith mark: Mark) -> LazyMapBidirectionalCollection<LazyFilterBidirectionalCollection<[Square]>, Board> {
+        return emptySquares.map { square in
+            var copy = self
+            copy[square] = mark
+            return copy
+        }
+    }
+
 }
