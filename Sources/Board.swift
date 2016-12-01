@@ -326,4 +326,13 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         }
     }
 
+    /// Returns the next available boards of `self` marked with `mark`.
+    public func nextAvailableBoards(markedWith mark: Mark) -> LazyMapBidirectionalCollection<LazyFilterBidirectionalCollection<[Square]>, Board>? {
+        return availableSquares?.map { square in
+            var copy = self
+            copy[square] = mark
+            return copy
+        }
+    }
+
 }
