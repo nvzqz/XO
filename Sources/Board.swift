@@ -193,6 +193,62 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         }
     }
 
+    /// Returns `self` rotated left by `count`.
+    public func rotatedLeft<I: Integer>(by count: I) -> Board {
+        switch count {
+        case 0:
+            return self
+        case 1:
+            return Board(_marks: [_marks[2], _marks[5], _marks[8],
+                                  _marks[1], _marks[4], _marks[7],
+                                  _marks[0], _marks[3], _marks[6]])
+        case 2:
+            return Board(_marks: [_marks[8], _marks[7], _marks[6],
+                                  _marks[5], _marks[4], _marks[3],
+                                  _marks[2], _marks[1], _marks[0]])
+        case 3:
+            return Board(_marks: [_marks[6], _marks[3], _marks[0],
+                                  _marks[7], _marks[4], _marks[1],
+                                  _marks[8], _marks[5], _marks[2]])
+        default:
+            let newCount = count % 4
+            return rotatedLeft(by: (newCount < 0) ? 4 + newCount : newCount)
+        }
+    }
+
+    /// Rotates `self` left by `count`.
+    public mutating func rotateLeft<I: Integer>(by count: I) {
+        self = rotatedLeft(by: count)
+    }
+
+    /// Returns `self` rotated right by `count`.
+    public func rotatedRight<I: Integer>(by count: I) -> Board {
+        switch count {
+        case 0:
+            return self
+        case 1:
+            return Board(_marks: [_marks[6], _marks[3], _marks[0],
+                                  _marks[7], _marks[4], _marks[1],
+                                  _marks[8], _marks[5], _marks[2]])
+        case 2:
+            return Board(_marks: [_marks[8], _marks[7], _marks[6],
+                                  _marks[5], _marks[4], _marks[3],
+                                  _marks[2], _marks[1], _marks[0]])
+        case 3:
+            return Board(_marks: [_marks[2], _marks[5], _marks[8],
+                                  _marks[1], _marks[4], _marks[7],
+                                  _marks[0], _marks[3], _marks[6]])
+        default:
+            let newCount = count % 4
+            return rotatedRight(by: (newCount < 0) ? 4 + newCount : newCount)
+        }
+    }
+
+    /// Rotates `self` right by `count`.
+    public mutating func rotateRight<I: Integer>(by count: I) {
+        self = rotatedRight(by: count)
+    }
+
     /// Returns `self` flipped horizontally.
     public func flippedHorizontally() -> Board {
         var copy = self
