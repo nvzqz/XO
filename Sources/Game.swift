@@ -78,7 +78,7 @@ public final class Game {
 
     /// The squares available to mark.
     public func availableSquares() -> [Square] {
-        return board.winner == nil ? board.emptySquares : []
+        return board.winner == nil ? Array(board.emptySquares) : []
     }
 
     /// Applies the appropiate mark to `square` without checking for error.
