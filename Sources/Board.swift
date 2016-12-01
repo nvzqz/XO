@@ -100,7 +100,9 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
                     result.append("\u{2B1C}") // white square
                 }
             }
-            result.append("\n")
+            if y < 2 {
+                result.append("\n")
+            }
         }
         return String(result)
     }
