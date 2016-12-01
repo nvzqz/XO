@@ -71,6 +71,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return Square.all.lazy.filter { self[$0] == nil }
     }
 
+    /// The available squares to mark.
+    public var availableSquares: LazyFilterBidirectionalCollection<[Square]>? {
+        return winner == nil ? emptySquares : nil
+    }
+
     /// An ASCII art representation of `self`.
     public var ascii: String {
         let segment = "+---+---+---+"
