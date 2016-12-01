@@ -146,6 +146,20 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         _marks = Array(repeating: nil, count: 9)
     }
 
+    /// Creates a tic-tac-toe board from a hash value.
+    public init(hashValue: Int) {
+        _marks = (0 ..< 9).map { i in
+            switch (hashValue >> (i << 1)) & 0b11 {
+            case 0:
+                return .x
+            case 1:
+                return .o
+            default:
+                return nil
+            }
+        }
+    }
+
     /// Creates a tic-tac-toe board from `marks`.
     public init<S: ExpressibleByUnicodeScalarLiteral & Equatable>(_ marks: [[S]]) {
         self.init()
