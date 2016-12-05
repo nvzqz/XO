@@ -26,7 +26,7 @@
 //
 
 /// A tic-tac-toe game.
-public final class Game {
+public final class Game: Equatable {
 
     /// An error thrown by `applyMark(to:)`.
     public enum ApplyMarkError: Error {
@@ -37,6 +37,17 @@ public final class Game {
         /// Attempted to apply when winner exists.
         case hasWinner(Mark)
 
+    }
+
+    /// Returns `true` if both games are the same.
+    public static func == (lhs: Game, rhs: Game) -> Bool {
+        if lhs === rhs {
+            return true
+        } else {
+            return lhs.board == rhs.board
+                && lhs._undoHistory == rhs._undoHistory
+                && lhs._redoHistory == rhs._redoHistory
+        }
     }
 
     /// History to undo.
