@@ -279,8 +279,10 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Flips `self` horizontally.
     public mutating func flipHorizontally() {
-        for y in 0 ..< 3 {
-            swap(&self[0, y], &self[2, y])
+        for i in 0 ..< 3 {
+            let a = i * 3
+            let b = a + 2
+            swap(&_marks[a], &_marks[b])
         }
     }
 
@@ -293,8 +295,8 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Flips `self` vertically.
     public mutating func flipVertically() {
-        for x in 0 ..< 3 {
-            swap(&self[x, 0], &self[x, 2])
+        for i in 0 ..< 3 {
+            swap(&_marks[i], &_marks[i + 6])
         }
     }
 
