@@ -170,7 +170,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         self.init()
         for y in marks.indices.prefix(3) {
             for x in marks[y].indices.prefix(3) {
-                self[x, y] = Mark(marks[y][x])
+                _marks[x + y * 3] = Mark(marks[y][x])
             }
         }
     }
