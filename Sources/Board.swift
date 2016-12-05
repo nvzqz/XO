@@ -54,7 +54,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Returns `true` if both boards are the same.
     public static func == (lhs: Board, rhs: Board) -> Bool {
-        if lhs._marks._isSameAs(rhs._marks) {
+        if UnsafePointer(lhs._marks) == UnsafePointer(rhs._marks) {
             return true
         }
         for i in 0 ..< 9 where lhs._marks[i] != rhs._marks[i] {
