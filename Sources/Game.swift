@@ -71,6 +71,13 @@ public final class Game: Equatable {
         _redoHistory = []
     }
 
+    /// Creates a game from `other`.
+    public init(_ other: Game) {
+        self._undoHistory = other._undoHistory
+        self._redoHistory = other._redoHistory
+        self.board = other.board
+    }
+
     /// Creates a new game from `history`.
     public convenience init(history: [Square]) throws {
         self.init()
