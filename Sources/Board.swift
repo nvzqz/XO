@@ -205,12 +205,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     }
 
     /// The mark at the x and y indices.
-    public subscript(xIndex: Int, yIndex: Int) -> Mark? {
+    public subscript(x: Int, y: Int) -> Mark? {
         get {
-            return Square(x: xIndex, y: yIndex).flatMap { self[$0] }
+            return Square(x: x, y: y).flatMap { self[$0] }
         }
         set {
-            guard let square = Square(x: xIndex, y: yIndex) else {
+            guard let square = Square(x: x, y: y) else {
                 return
             }
             self[square] = newValue
