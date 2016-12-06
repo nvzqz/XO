@@ -184,7 +184,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         let split = emoji.unicodeScalars.split(separator: "\n")
         for (y, part) in split.prefix(3).enumerated() {
             for (x, scalar) in part.prefix(3).enumerated() {
-                self[x, y] = Mark(emoji: scalar)
+                _marks[x + y * 3] = Mark(emoji: scalar)
             }
         }
     }
