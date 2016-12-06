@@ -133,10 +133,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// The hash value.
     public var hashValue: Int {
-        return (0 ..< 9).reduce(0) { result, i in
+        var result = 0
+        for i in 0 ..< 9 {
             let hash = _marks[i]?.hashValue ?? 2
-            return result | (hash << (i << 1))
+            result |= (hash << (i << 1))
         }
+        return result
     }
 
     /// Creates a tic-tac-toe board from `_marks`.
