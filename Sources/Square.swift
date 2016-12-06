@@ -91,8 +91,8 @@ public enum Square: Int, CustomStringConvertible {
 
     /// A textual representation of this instance.
     public var description: String {
-        let chars: [Character] = ["a", "b", "c"]
-        return String(chars[x]) + String(chars[y])
+        let letters = ["a", "b", "c"]
+        return letters[x] + letters[y]
     }
 
     /// Creates a square from `x` and `y` indices.
