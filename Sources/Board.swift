@@ -155,14 +155,15 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Creates a tic-tac-toe board from a hash value.
     public init(hashValue: Int) {
-        _marks = (0 ..< 9).map { i in
+        self.init()
+        for i in 0 ..< 9 {
             switch (hashValue >> (i << 1)) & 0b11 {
             case 0:
-                return .x
+                _marks[i] = .x
             case 1:
-                return .o
+                _marks[i] = .o
             default:
-                return nil
+                break
             }
         }
     }
