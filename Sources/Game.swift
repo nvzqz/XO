@@ -28,7 +28,7 @@
 /// A tic-tac-toe game.
 public final class Game: Equatable {
 
-    /// An error thrown by `applyMark(to:)`.
+    /// An error thrown by `applyMark(to:)` or `init(history:)`.
     public enum ApplyMarkError: Error {
 
         /// Attempted to apply to non empty square.
@@ -79,6 +79,8 @@ public final class Game: Equatable {
     }
 
     /// Creates a new game from `history`.
+    ///
+    /// - throws: `ApplyMarkError`
     public convenience init(history: [Square]) throws {
         self.init()
         for square in history {
@@ -102,6 +104,8 @@ public final class Game: Equatable {
     }
 
     /// Applies the appropiate mark to `square`.
+    ///
+    /// - throws: `ApplyMarkError`
     public func applyMark(to square: Square) throws {
         if board[square] != nil {
             throw ApplyMarkError.nonEmpty(square)
