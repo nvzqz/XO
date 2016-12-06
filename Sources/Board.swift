@@ -66,6 +66,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     /// The marks on `self`.
     private var _marks: [Mark?]
 
+    /// Whether `self` is empty.
+    public var isEmpty: Bool {
+        return !_marks.contains(where: { $0 != nil })
+    }
+
     /// The empty squares of `self`.
     public var emptySquares: LazyFilterBidirectionalCollection<[Square]> {
         return Square.all.lazy.filter { self[$0] == nil }
