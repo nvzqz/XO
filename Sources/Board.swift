@@ -76,6 +76,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return !_marks.contains(where: { $0 == nil })
     }
 
+    /// Whether the `self` is finished. In other words, there are no more available squares.
+    public var isFinished: Bool {
+        return winner != nil || isFull
+    }
+
     /// The empty squares of `self`.
     public var emptySquares: LazyFilterBidirectionalCollection<[Square]> {
         return Square.all.lazy.filter { self[$0] == nil }
