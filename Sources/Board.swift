@@ -88,38 +88,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// An ASCII art representation of `self`.
     public var ascii: String {
-        let segment = "+---+---+---+"
-        var result = segment
-        for y in (0 ..< 3) {
-            result += "\n|"
-            for x in (0 ..< 3) {
-                if let mark = _marks[x + y * 3] {
-                    result += " " + mark.description + " |"
-                } else {
-                    result += "   |"
-                }
-            }
-            result += "\n" + segment
-        }
-        return result
+        return string(x: "x", o: "o", none: ".", padding: 2)
     }
 
     /// An emoji representation of `self`.
     public var emoji: String {
-        var result = String.UnicodeScalarView()
-        for y in (0 ..< 3) {
-            for x in (0 ..< 3) {
-                if let mark = _marks[x + y * 3] {
-                    result.append(mark.emoji())
-                } else {
-                    result.append("\u{2B1C}") // white square
-                }
-            }
-            if y < 2 {
-                result.append("\n")
-            }
-        }
-        return String(result)
+        return string(x: "\u{274C}", o: "\u{2B55}", none: "\u{2B1C}")
     }
 
     /// The winning mark in `self`, if any.
@@ -225,6 +199,32 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
             }
             self[square] = newValue
         }
+    }
+
+    /// Returns a string representation of `self` as with scalars to represent different marks.
+    public func string(x: UnicodeScalar, o: UnicodeScalar, none: UnicodeScalar, padding: Int = 0) -> String {
+        var result = String.UnicodeScalarView()
+        for i in (0 ..< 3) {
+            for j in (0 ..< 3) {
+                if let mark = _marks[j + i * 3] {
+                    switch mark {
+                    case .x: result.append(x)
+                    case .o: result.append(o)
+                    }
+                } else {
+                    result.append(none)
+                }
+                if padding > 0 && j != 2 {
+                    for _ in 0 ..< padding {
+                        result.append(" ")
+                    }
+                }
+            }
+            if i < 2 {
+                result.append("\n")
+            }
+        }
+        return String(result)
     }
 
     /// Returns `self` rotated left by `count`.
