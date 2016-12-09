@@ -63,6 +63,14 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return true
     }
 
+    /// Returns `true` if the count of `x` is equal to that of `o` or the count of `x` is one more than that of `o`.
+    ///
+    /// - parameter counts: The counts of `Mark.x` and `Mark.o`.
+    public static func isValid(counts: (x: Int, o: Int)) -> Bool {
+        let (x, o) = counts
+        return (x == o) || (x == o + 1)
+    }
+
     /// The marks on `self`.
     private var _marks: [Mark?]
 
@@ -83,8 +91,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Whether the count of `x` is equal to that of `o` or the count of `x` is one more than that of `o`.
     public var isValid: Bool {
-        let (x, o) = markCounts
-        return (x == o) || (x == o + 1)
+        return Board.isValid(counts: markCounts)
     }
 
     /// The counts of `x` and `y` in `self`.
