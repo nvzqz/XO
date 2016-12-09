@@ -76,9 +76,26 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return !_marks.contains(where: { $0 == nil })
     }
 
-    /// Whether the `self` is finished. In other words, there are no more available squares.
+    /// Whether `self` is finished. In other words, there are no more available squares.
     public var isFinished: Bool {
         return winner != nil || isFull
+    }
+
+    /// Whether the count of `x` is equal to that of `o` or the count of `x` is one more than that of `o`.
+    public var isValid: Bool {
+        var xCount = 0
+        var oCount = 0
+        for mark in _marks {
+            if let mark = mark {
+                switch mark {
+                case .x:
+                    xCount += 1
+                case .o:
+                    oCount += 1
+                }
+            }
+        }
+        return (xCount == oCount) || (xCount == oCount + 1)
     }
 
     /// The empty squares of `self`.
