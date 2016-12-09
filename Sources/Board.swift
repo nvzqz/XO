@@ -83,6 +83,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
 
     /// Whether the count of `x` is equal to that of `o` or the count of `x` is one more than that of `o`.
     public var isValid: Bool {
+        let (x, o) = markCounts
+        return (x == o) || (x == o + 1)
+    }
+
+    /// The counts of `x` and `y` in `self`.
+    public var markCounts: (x: Int, o: Int) {
         var xCount = 0
         var oCount = 0
         for mark in _marks {
@@ -95,7 +101,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
                 }
             }
         }
-        return (xCount == oCount) || (xCount == oCount + 1)
+        return (xCount, oCount)
     }
 
     /// The empty squares of `self`.
