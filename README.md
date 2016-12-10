@@ -122,8 +122,10 @@ The mark then switches repeatedly until the game is finished.
 The available squares can be retrieved using `availableSquares` on a `Board`.
 
 ```swift
-while let marks = game.board.availableSquares {
-    ...
+if let squares = game.board.availableSquares {
+    for square in squares {
+        ...
+    }
 }
 ```
 
