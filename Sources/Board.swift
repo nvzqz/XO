@@ -301,7 +301,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     }
 
     /// Returns `self` rotated left by `count`.
-    public func rotatedLeft<I: Integer>(by count: I) -> Board {
+    public func rotatedLeft<I: ExpressibleByIntegerLiteral & IntegerArithmetic>(by count: I) -> Board {
         switch count {
         case 0:
             return self
@@ -324,12 +324,12 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     }
 
     /// Rotates `self` left by `count`.
-    public mutating func rotateLeft<I: Integer>(by count: I) {
+    public mutating func rotateLeft<I: ExpressibleByIntegerLiteral & IntegerArithmetic>(by count: I) {
         self = rotatedLeft(by: count)
     }
 
     /// Returns `self` rotated right by `count`.
-    public func rotatedRight<I: Integer>(by count: I) -> Board {
+    public func rotatedRight<I: ExpressibleByIntegerLiteral & IntegerArithmetic>(by count: I) -> Board {
         switch count {
         case 0:
             return self
@@ -352,7 +352,7 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     }
 
     /// Rotates `self` right by `count`.
-    public mutating func rotateRight<I: Integer>(by count: I) {
+    public mutating func rotateRight<I: ExpressibleByIntegerLiteral & IntegerArithmetic>(by count: I) {
         self = rotatedRight(by: count)
     }
 
