@@ -319,6 +319,11 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return !squares.contains(where: { !hasMark(at: $0) })
     }
 
+    /// Returns `true` if `self` has the same mark at `squares`.
+    public func hasSameMark<S: Sequence>(at squares: S) -> Bool where S.Iterator.Element == Square {
+        return mark(at: squares) != nil
+    }
+
     /// Returns `self` rotated left by `count`.
     public func rotatedLeft<I: ExpressibleByIntegerLiteral & IntegerArithmetic>(by count: I) -> Board {
         switch count {
