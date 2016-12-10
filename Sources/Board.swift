@@ -94,6 +94,26 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return Board.isValid(counts: markCounts)
     }
 
+    /// Whether the horizontal reflection of `self` is the same as `self`.
+    public var reflectsHorizontally: Bool {
+        for i in 0 ..< 3 {
+            let a = i * 3
+            let b = a + 2
+            if _marks[a] != _marks[b] {
+                return false
+            }
+        }
+        return true
+    }
+
+    /// Whether the vertical reflection of `self` is the same as `self`.
+    public var reflectsVertically: Bool {
+        for i in 0 ..< 3 where _marks[i] != _marks[i + 6] {
+            return false
+        }
+        return true
+    }
+
     /// The counts of `x` and `y` in `self`.
     public var markCounts: (x: Int, o: Int) {
         var xCount = 0
