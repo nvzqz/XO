@@ -290,6 +290,20 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return String(result)
     }
 
+    /// Returns the mark at `squares` if they contain the same mark.
+    public func mark<S: Sequence>(at squares: S) -> Mark? where S.Iterator.Element == Square {
+        var iterator = squares.makeIterator()
+        guard let first = iterator.next(), let mark = self[first] else {
+            return nil
+        }
+        while let next = iterator.next() {
+            guard self[next] == mark else {
+                return nil
+            }
+        }
+        return mark
+    }
+
     /// Returns `true` if `self` has a mark at `square`.
     public func hasMark(at square: Square) -> Bool {
         return self[square] != nil
