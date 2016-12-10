@@ -4,10 +4,10 @@ XO is a cross-platform tic-tac-toe library for Swift.
 
 ## Features
 
-[x] Tic-tac-toe game management
-[x] Tic-tac-toe board structuring
-[x] Square availability
-[x] Marking validation
+- [x] Tic-tac-toe game management
+- [x] Tic-tac-toe board structuring
+- [x] Square availability
+- [x] Marking validation
 
 ## Installation
 
