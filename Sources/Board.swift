@@ -127,13 +127,13 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         var xCount = 0
         var oCount = 0
         for mark in _marks {
-            if let mark = mark {
-                switch mark {
-                case .x:
-                    xCount += 1
-                case .o:
-                    oCount += 1
-                }
+            switch mark {
+            case .some(.x):
+                xCount += 1
+            case .some(.o):
+                oCount += 1
+            default:
+                break
             }
         }
         return (xCount, oCount)
