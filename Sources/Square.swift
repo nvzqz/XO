@@ -96,12 +96,11 @@ public enum Square: Int, CustomStringConvertible {
     }
 
     /// Creates a square from `x` and `y` indices.
-    public init?(x: Int, y: Int) {
-        let range = 0 ..< 3
-        guard range ~= x && range ~= y else {
+    public init?<I: Comparable & IntegerArithmetic & ExpressibleByIntegerLiteral>(x: I, y: I) {
+        guard 0 ..< 3 ~= x && 0 ..< 3 ~= y else {
             return nil
         }
-        self.init(rawValue: x + y * 3)
+        self.init(rawValue: Int(x.toIntMax() + y.toIntMax() * 3))
     }
 
 }
