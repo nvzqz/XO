@@ -378,6 +378,20 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         }
     }
 
+    /// Flips `self` horizontally and vertically.
+    public mutating func flipHorizontallyAndVertically() {
+        for i in 0 ..< 4 {
+            swap(&_marks[i], &_marks[8 - i])
+        }
+    }
+
+    /// Returns `self` flipped horizontally and vertically.
+    public func flippedHorizontallyAndVertically() -> Board {
+        var copy = self
+        copy.flipHorizontallyAndVertically()
+        return copy
+    }
+
     /// Returns `self` with the marks inverted.
     public func inverse() -> Board {
         var copy = self
