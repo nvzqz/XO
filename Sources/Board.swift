@@ -114,6 +114,14 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return true
     }
 
+    /// Whether the combination of horizontal and vertical reflections of `self` is the same as `self`.
+    public var reflectsHorizontallyAndVertically: Bool {
+        for i in 0 ..< 4 where _marks[i] != _marks[8 - i] {
+            return false
+        }
+        return true
+    }
+
     /// The counts of `x` and `y` in `self`.
     public var markCounts: (x: Int, o: Int) {
         var xCount = 0
