@@ -176,7 +176,8 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
             if let mark = _marks[i], _marks[i + 3] == mark, _marks[i + 6] == mark {
                 return mark
             }
-            if let mark = _marks[i * 3], _marks[i + 1] == mark, _marks[i + 2] == mark {
+            let j = i * 3
+            if let mark = _marks[j], _marks[j + 1] == mark, _marks[j + 2] == mark {
                 return mark
             }
         }
