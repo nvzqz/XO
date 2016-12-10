@@ -26,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522D13401DFCC6CF0029E5A4 /* XO.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XO.podspec; sourceTree = "<group>"; };
 		524B87B41DFB910F0020EF4B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		527136EE1DEE54E900F7CE46 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		52B58FE91D9B036100103C78 /* Square.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
@@ -78,8 +79,9 @@
 				52FD52271D9A04880010FB61 /* Sources */,
 				52FD52251D9A04780010FB61 /* Support */,
 				52FD51F61D9A04100010FB61 /* Products */,
-				524B87B41DFB910F0020EF4B /* Package.swift */,
 				52FD52351D9A09270010FB61 /* XO.playground */,
+				524B87B41DFB910F0020EF4B /* Package.swift */,
+				522D13401DFCC6CF0029E5A4 /* XO.podspec */,
 				52FD522A1D9A05CE0010FB61 /* LICENSE.md */,
 			);
 			sourceTree = "<group>";
