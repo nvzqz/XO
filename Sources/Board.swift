@@ -84,9 +84,14 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return !_marks.contains(where: { $0 == nil })
     }
 
+    /// Whether `self` has a winner.
+    public var hasWinner: Bool {
+        return winner != nil
+    }
+
     /// Whether `self` is finished. In other words, there are no more available squares.
     public var isFinished: Bool {
-        return winner != nil || isFull
+        return hasWinner || isFull
     }
 
     /// Whether the count of `x` is equal to that of `o` or the count of `x` is one more than that of `o`.
