@@ -1,5 +1,14 @@
 # XO
 
+<p align="center">
+<img src="https://img.shields.io/badge/swift-3.0-orange.svg" alt="Language: Swift">
+<img src="https://img.shields.io/badge/platform-ios%20%7C%20macos%20%7C%20watchos%20%7C%20tvos%20%7C%20linux-lightgrey.svg" alt="Platform">
+<a href="https://cocoapods.org/pods/XO"><img src="https://img.shields.io/cocoapods/v/XO.svg" alt="CocoaPods - RandomKit"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage"></a>
+<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-compatible-orange.svg" alt="Swift Package Manager"></a>
+<img src="https://img.shields.io/badge/license-MIT-000000.svg" alt="License">
+</p>
+
 XO is a cross-platform tic-tac-toe library for Swift.
 
 ## Features
