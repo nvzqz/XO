@@ -34,6 +34,16 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
     /// O mark.
     case o = "o"
 
+    /// Whether self is `x`.
+    public var isX: Bool {
+        return self == .x
+    }
+
+    /// Whether self is `o`.
+    public var isO: Bool {
+        return self == .o
+    }
+
     /// A textual representation of this instance.
     public var description: String {
         return String(rawValue)
