@@ -182,6 +182,13 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
         return nil
     }
 
+    /// The result of inverting the marks of `self`.
+    public var inverse: Board {
+        var copy = self
+        copy.invert()
+        return copy
+    }
+
     /// The hash value.
     public var hashValue: Int {
         var result = 0
@@ -425,13 +432,6 @@ public struct Board: Equatable, Sequence, Hashable, ExpressibleByArrayLiteral {
     public func flippedHorizontallyAndVertically() -> Board {
         var copy = self
         copy.flipHorizontallyAndVertically()
-        return copy
-    }
-
-    /// Returns `self` with the marks inverted.
-    public func inverse() -> Board {
-        var copy = self
-        copy.invert()
         return copy
     }
 

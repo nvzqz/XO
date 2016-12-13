@@ -44,6 +44,14 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         return self == .o
     }
 
+    /// The inverse mark of `self`.
+    public var inverse: Mark {
+        switch self {
+        case .x: return .o
+        case .o: return .x
+        }
+    }
+
     /// A textual representation of this instance.
     public var description: String {
         return String(rawValue)
@@ -75,17 +83,9 @@ public enum Mark: UnicodeScalar, CustomStringConvertible {
         }
     }
 
-    /// Returns the inverse mark of `self`.
-    public func inverse() -> Mark {
-        switch self {
-        case .x: return .o
-        case .o: return .x
-        }
-    }
-
     /// Inverts the mark of `self`.
     public mutating func invert() {
-        self = inverse()
+        self = inverse
     }
 
 }
