@@ -96,8 +96,8 @@ public enum Square: Int, CustomStringConvertible {
     }
 
     /// Creates a square from `x` and `y` indices.
-    public init?<X: Comparable & IntegerArithmetic & ExpressibleByIntegerLiteral,
-                 Y: Comparable & IntegerArithmetic & ExpressibleByIntegerLiteral>(x: X, y: Y) {
+    public init?<X: IntegerArithmetic & ExpressibleByIntegerLiteral,
+                 Y: IntegerArithmetic & ExpressibleByIntegerLiteral>(x: X, y: Y) {
         guard 0 ..< 3 ~= x && 0 ..< 3 ~= y else {
             return nil
         }
